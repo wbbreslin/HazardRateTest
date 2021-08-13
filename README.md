@@ -32,5 +32,24 @@ $Z
 $p.value
 [1] 0.1322714
 ```
+
+The other function in this package is `null_dist`, which is used to find the exact null distribution of the test statistic given two sample sizes. Using two samples with 3 data points each as an example:
+```{r}
+null_dist(m=3,n=3)
+```
+This will ouput the null distribution in a frequency table.
+```
+              W Occurrences Probability
+[1,] -1.0000000           2        0.10
+[2,] -0.5555556           3        0.15
+[3,] -0.3333333           2        0.10
+[4,] -0.1111111           3        0.15
+[5,]  0.1111111           3        0.15
+[6,]  0.3333333           2        0.10
+[7,]  0.5555556           3        0.15
+[8,]  1.0000000           2        0.10
+```
+The exact null distribution is not needed for sample sizes m>8 and n>8, as discussed in the thesis paper. It is not recommended to use this function for larger sample sizes due to the computation time required for it to run.
+
 ## Thesis Paper
 https://wbbreslin.github.io/Statistics-Projects/Masters-Thesis.html
