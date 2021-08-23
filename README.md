@@ -1,8 +1,6 @@
 ## HazardRateTest
 An R package for a statistical test that compares the hazard rates of two samples.
 
-**Note**: due to the complexity of calculating the test statistic, it is not recommended to use this test for large sample sizes in this package's current version. It has only been tested up to samples sizes of *n=m=100*, which took a few minutes to run, and the run time increases exponentially with the sample sizes.
-
 ## To Install
 Installation requires the `devtools` package.
 
@@ -32,6 +30,10 @@ $Z
 $p.value
 [1] 0.1322714
 ```
+
+**Note**: due to the complexity of calculating the test statistic, it is not recommended to use this test for large sample sizes in this package's current version. It has only been tested up to samples sizes of *n=m=100*, which took a few minutes to run, and the run time increases exponentially with the sample sizes.
+
+---
 
 The other function in this package is `null_dist`, which is used to find the exact null distribution of the test statistic given two sample sizes. Using two samples with 3 data points each as an example:
 ```{r}
