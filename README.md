@@ -54,4 +54,4 @@ This will ouput the null distribution in a frequency table.
 The exact null distribution is not needed for sample sizes m>8 and n>8, as discussed in the thesis paper. It is not recommended to use this function for larger sample sizes due to the computation time required for it to run.
 
 ## Thesis Paper
-https://github.com/wbbreslin/Statistics-Portfolio/blob/main/Masters-Thesis/Masters-Thesis.pdf
+https://github.com/wbbreslin/Statistics/blob/master/Masters-Thesis/Masters-Thesis.pdf
