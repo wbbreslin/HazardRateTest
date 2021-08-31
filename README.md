@@ -15,7 +15,7 @@ set.seed(314)
 x = rexp(n=10, rate=1)
 y = rexp(n=10, rate=1/2)
 ```
-The `hazard_test` function can be applied to these two data sets.
+The `hazard.test` function can be applied to these two data sets.
 ```{r}
 hazard.test(x,y)
 ```
