@@ -1,5 +1,9 @@
 ## HazardRateTest
-An R package for a statistical test that compares the hazard rates of two samples.
+An R package for a statistical test that compares the hazard rates of two samples. Define r<sub>X</sub> to be the hazard function for variable X and r<sub>Y</sub> the hazard function for variable Y. The null hypothesis is that there is no difference between the hazard rates.
+
+Null hypothesis: r<sub>X</sub> = r<sub>Y</sub> 
+
+Rejecting the null hypothesis indicates a hazard rate ordering of X and Y, and consequently also stochastic ordering.
 
 ## To Install
 Installation requires the `devtools` package.
@@ -52,6 +56,3 @@ This will ouput the null distribution in a frequency table.
 [8,]  1.0000000           2        0.10
 ```
 The exact null distribution is not needed for sample sizes m>8 and n>8, as discussed in the thesis paper. It is not recommended to use this function for larger sample sizes due to the computation time required for it to run.
-
-## Thesis Paper
-Need to add link to thesis paper.
