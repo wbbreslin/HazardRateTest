@@ -21,6 +21,9 @@ hazard.test(x,y)
 ```
 This will output:
 ```{r}
+$Phi
+[1] -798
+
 $W
 [1] -0.3940741
 
@@ -55,12 +58,12 @@ The exact null distribution is not needed for sample sizes m>8 and n>8, as the n
 
 ## Releases
 
-### v2.0 Computation Speed Update (9 Sept. 2021)
+### v2.0 Computation Speed Update (9/9/2021)
 
 This update resolves the issue of computational complexity by counting the kernel sequence for the test statistics using combinatorics, rather than by brute force. 
 
-For context, before this update, with samples of size n=100 and m=100, the code took about 2 minutes to run. With this update, for the same sample sizes, the run time is less than a second. However, the test still takes a decent amount of time to run for larger samples. For samples of size n=1,000 and m=1,000, the test took ~20 seconds to run. For n=2,000 and m=2,000, it took 2.5 minutes to run.
+For context, before this update, with samples of size n=100 and m=100, the code took about 2 minutes to run. With this update, for the same sample sizes, the run time is less than a second. However, the test still takes a decent amount of time to run for larger samples. For samples of size n=1,000 and m=1,000, the test took ~20 seconds to run. For n=2,000 and m=2,000, it took 2.5 minutes to run. This a a major improvement from the v1.0 release.
 
-Note that these times may vary based on the power of you computer.
+(Note that these times may vary based on the power of you computer)
 
-### v1.0 Initial Release (13 February 2021)
+### v1.0 Initial Release (2/13/2021)
