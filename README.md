@@ -31,8 +31,6 @@ $p.value
 [1] 0.1322714
 ```
 
-**Note**: due to the complexity of calculating the test statistic, it is not recommended to use this test for large sample sizes in this package's current version. It has only been tested up to samples sizes of *n=m=100*, which took a few minutes to run, and the run time increases exponentially with the sample sizes.
-
 ---
 
 The other function in this package is `null.dist`, which is used to find the exact null distribution of the test statistic given two sample sizes. Using two samples with 3 data points each as an example:
@@ -52,3 +50,17 @@ This will ouput the null distribution in a frequency table.
 [8,]  1.0000000           2        0.10
 ```
 The exact null distribution is not needed for sample sizes m>8 and n>8, as the normal approximation is sufficient beyond that point. It is not recommended to use this function for larger sample sizes due to the computation time required for it to run.
+
+---
+
+## Releases
+
+### v2.0 Computation Speed Update (9 Sept. 2021)
+
+This update resolves the issue of computational complexity by counting the kernel sequence for the test statistics using combinatorics, rather than by brute force. 
+
+For context, before this update, with samples of size n=100 and m=100, the code took about 2 minutes to run. With this update, for the same sample sizes, the run time is less than a second. However, the test still takes a decent amount of time to run for larger samples. For samples of size n=1,000 and m=1,000, the test took ~20 seconds to run. For n=2,000 and m=2,000, it took 2.5 minutes to run.
+
+Note that these times may vary based on the power of you computer.
+
+### v1.0 Initial Release (13 February 2021)
