@@ -1,7 +1,7 @@
 Package: HazardRateTest
 Type: Package
 Title: Two-Sample Test for Comparing Hazard Rates
-Version: 1.1.0
+Version: 2.0.0
 Author: William Breslin
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)

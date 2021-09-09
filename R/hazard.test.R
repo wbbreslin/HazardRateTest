@@ -20,7 +20,7 @@ hazard.test = function(x,y,alternative="two.sided"){
   N = n+m
   x.pairs = t(combn(x,2))
   y.pairs = t(combn(y,2))
-  phi = kernel(x.pairs, y.pairs)
+  phi = sum(apply(x.pairs, MARGIN=1, FUN=kernel, y=y))
   W = phi/choose(n,2)/choose(m,2)
   null.var = 16*m*n*N-(11*m^2 + 11*n^2+6*n*m)-3*N+8
   null.var = null.var/210/choose(n,2)/choose(m,2)
@@ -78,7 +78,7 @@ hazard.test = function(x,y,alternative="two.sided"){
     }
   }
 
-  out = list(W, Z, p.value)
-  names(out) = c("W", "Z", "p.value")
+  out = list(phi, W, Z, p.value)
+  names(out) = c("Phi", "W", "Z", "p.value")
   return(out)
 }

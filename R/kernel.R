@@ -1,15 +1,13 @@
-kernel = function(x.pairs,y.pairs){
-  w=0
-  for (i in 1:nrow(x.pairs)){
-    for (j in 1:nrow(y.pairs)){
-      x1 = x.pairs[i,1]; x2 = x.pairs[i,2]
-      y1 = y.pairs[j,1]; y2 = y.pairs[j,2]
-      if (min(x1,x2) > max(y1,y2)){
-        w = w+1}
-      if (max(x1,x2) > max(y1,y2) & min(x1,x2) < min(y1,y2)){
-        w = w+1}
-      if (min(y1,y2) > max(x1,x2)){
-        w = w-1}
-      if (max(y1,y2) > max(x1,x2) & min(y1,y2) < min(x1,x2)){
-        w = w-1}}}
-  return(w)}
+kernel = function(xx,y){
+  #Sequence: Y<Y<X<X
+  p1 = choose(sum(y<min(xx)),2)
+  #Sequence: X<Y<Y<X
+  p2 = choose(sum(min(xx)<y & y<max(xx)),2)
+  #Sequence: X<X<Y<Y
+  m1 = choose(sum(y>max(xx)),2)
+  #Sequence: Y<X<X<Y
+  m2 = sum(y>max(xx))*sum(y<min(xx))
+  #Summation
+  total = p1+p2-m1-m2
+  return(total)
+}
