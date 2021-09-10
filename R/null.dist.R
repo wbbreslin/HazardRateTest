@@ -10,30 +10,25 @@
 #' @import utils
 #' @export
 null.dist = function(m,n){
-  N = m+n
+  N = n+m
   Ranks = 1:N
-  x.data = t(combn(Ranks,m)); y.data=c()
-  for (i in 1:nrow(x.data)){
-    if (i == 1){
-      y.data = t(as.data.frame(setdiff(Ranks,x.data[1,])))}
-    else{
-      temp = setdiff(Ranks, x.data[i,])
-      y.data = rbind(y.data,temp)}
+  rows = choose(N,n)
+
+  x.data = t(combn(Ranks,m))
+  y.data = t(combn(Ranks,n))
+  y.data = y.data[rows:1,]
+
+  distribution = rep(NA,rows)
+
+  for (i in 1:rows){
     x.pairs = t(combn(x.data[i,],2))
-    y.pairs = t(combn(y.data[i,],2))
-    if (i == 1){
-      w = kernel(x.pairs,y.pairs)/(choose(n,2)*choose(m,2))}
-    else{
-      temp = kernel(x.pairs,y.pairs)/(choose(n,2)*choose(m,2))
-      w = c(w,temp)}}
-  support = sort(unique(w))
-  for (i in support){
-    if (i == min(support)){
-      freq = sum(w==i)
-      prob = freq/length(w)}
-    else{
-      freq = c(freq, sum(w==i))
-      prob = c(prob, sum(w==i)/length(w))}}
-  table = cbind(support,freq,prob)
-  colnames(table)=c("W","Occurrences","Probability")
-  return(table)}
+    y = y.data[i,]
+    phi = sum(apply(x.pairs, MARGIN=1, FUN=kernel, y=y))
+    phi = phi/choose(n,2)/choose(m,2)
+    distribution[i] = phi
+  }
+
+  out = as.data.frame(table(distribution))
+  out$Probability = out$Freq/sum(out$Freq)
+  names(out) = c("Test Statistic", "Frequency", "Probability")
+  return(out)}
