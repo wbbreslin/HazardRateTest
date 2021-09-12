@@ -35,7 +35,7 @@ $p.value
 ```
 
 Interpreting the output:
-* Phi is the kernel of the test statistic, which is the total number of 4-length x-pair and y-pair sequences suggesting X greater than Y in hazard rate ordering, minus those suggesting X less than Y in hazard rate ordering
+* Phi is the kernel of the test statistic, which is the total number of x-pair & y-pair sequences suggesting X greater than Y in hazard rate ordering, minus those suggesting X less than Y in hazard rate ordering
 * W is our test statistic, which is Phi rescaled such that it is between -1 and 1
 * Z standardizes W to have mean=0 and sd=1, which is used for the normal approximation of the p-value
 * The p-value is exact for sample sizes n and m less than or equal to 10, otherwise the normal approximation is used
