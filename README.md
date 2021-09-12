@@ -36,6 +36,12 @@ $p.value
 
 ---
 
+Interpreting the output:
+* Phi is the kernel of the test statistic, which is the total number of 4-length x-pair and y-pair sequences suggesting X greater than Y in hazard rate ordering, minus those suggesting X less than Y in hazard rate ordering
+* W is our test statistic, which is Phi rescaled such that it is between -1 and 1
+* Z standardizes W to have mean=0 and sd=1, which is used for the normal approximation of the p-value
+* The p-value is exact for sample sizes n and m less than or equal to 10, otherwise the normal approximation is used
+
 The other function in this package is `null.dist`, which is used to find the exact null distribution of the test statistic given two sample sizes. Using two samples with 3 data points each as an example:
 ```{r}
 null.dist(m=3,n=3)
@@ -54,8 +60,6 @@ This will ouput the null distribution in a frequency table.
 ```
 The exact null distribution is not needed for sample sizes m>8 and n>8, as the normal approximation is sufficient beyond that point. It is not recommended to use this function for larger sample sizes due to the computation time required for it to run.
 
----
-
 ## Releases
 
 ### v2.0 Computation Speed Update (9/9/2021)
@@ -64,6 +68,6 @@ This update resolves the issue of computational complexity by counting the kerne
 
 For context, before this update, with samples of size n=100 and m=100, the code took about 2 minutes to run. With this update, for the same sample sizes, the run time is less than a second. However, the test still takes a decent amount of time to run for larger samples. For samples of size n=1,000 and m=1,000, the test took ~20 seconds to run. For n=2,000 and m=2,000, it took 2.5 minutes to run. This a a major improvement from the v1.0 release.
 
-(Note that these times may vary based on the power of you computer)
+(Note that these times may vary based on the power of your computer)
 
 ### v1.0 Initial Release (2/13/2021)
