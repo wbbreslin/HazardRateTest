@@ -59,15 +59,3 @@ This will ouput the null distribution in a frequency table.
 [8,]  1.0000000           2        0.10
 ```
 The exact null distribution is not needed for sample sizes m>8 and n>8, as the normal approximation is sufficient beyond that point. It is not recommended to use this function for larger sample sizes due to the computation time required for it to run.
-
-## Releases
-
-### v2.0 Computation Speed Update (9/9/2021)
-
-This update resolves the issue of computational complexity by counting the kernel sequence for the test statistics using combinatorics, rather than by brute force. 
-
-For context, before this update, with samples of size n=100 and m=100, the code took about 2 minutes to run. With this update, for the same sample sizes, the run time is less than a second. However, the test still takes a decent amount of time to run for larger samples. For samples of size n=1,000 and m=1,000, the test took ~20 seconds to run. For n=2,000 and m=2,000, it took 2.5 minutes to run. This a a major improvement from the v1.0 release.
-
-(Note that these times may vary based on the power of your computer)
-
-### v1.0 Initial Release (2/13/2021)
