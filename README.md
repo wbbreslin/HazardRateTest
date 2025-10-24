@@ -1,6 +1,10 @@
 ## HazardRateTest
 An R package for a statistical test that compares the hazard rates of two samples. 
 
+For a full description of the package and the statistical test, refer to the corresponding thesis pdf file:
+[Download my thesis (PDF)](Exact%20Distribution%20for%20Hazard%20Rate%20Test.pdf)
+
+
 ## To Install
 Installation requires the `devtools` package.
 
